@@ -1,0 +1,4 @@
+<resources>
+    <string name="app_name">TestDemo</string>
+    <string name="no_internet">Please check internet connectivity!</string>
+</resources>
