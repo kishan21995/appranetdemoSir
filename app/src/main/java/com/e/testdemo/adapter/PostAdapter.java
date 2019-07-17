@@ -23,6 +23,10 @@ public class PostAdapter extends RecyclerView.Adapter<PostAdapter.MyViewHolder> 
     private PostResponse postResponse;
     Context context;
 
+    public PostAdapter() {
+
+    }
+
     @NonNull
     @Override
     public PostAdapter.MyViewHolder onCreateViewHolder(@NonNull ViewGroup viewGroup, int i) {
@@ -64,6 +68,11 @@ public class PostAdapter extends RecyclerView.Adapter<PostAdapter.MyViewHolder> 
         }else{
             return 0;
         }
+    }
+
+    public void setData(PostResponse postResponse, Context applicationContext) {
+        this.context = applicationContext;
+        this.postResponse = postResponse;
     }
 
     public class MyViewHolder extends RecyclerView.ViewHolder {

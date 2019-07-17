@@ -37,11 +37,7 @@ public class PostDemoActivity extends AppCompatActivity implements View.OnClickL
     }
 
 
-    @Override
-    protected void onResume() {
-        super.onResume();
 
-    }
 
 
     @Override
@@ -51,8 +47,7 @@ public class PostDemoActivity extends AppCompatActivity implements View.OnClickL
             Toast.makeText(this, getString(R.string.no_internet), Toast.LENGTH_LONG).show();
             return;
         }
-        ApiInterface apiService =
-                ApiClient.getClient().create(ApiInterface.class);
+        ApiInterface apiService = ApiClient.getClient().create(ApiInterface.class);
 
         Call<PostResponse> call = apiService.getTest();
         AppUtils.showProgressDialog(this, "Please wait...");
@@ -83,9 +78,11 @@ public class PostDemoActivity extends AppCompatActivity implements View.OnClickL
      */
     private void updateList(PostResponse postResponse) {
         postAdapter = new PostAdapter(postResponse, getApplicationContext());
+//        postAdapter = new PostAdapter();
+//        postAdapter.setData(postResponse, getApplicationContext());
         recyclerView.setLayoutManager(new LinearLayoutManager(PostDemoActivity.this));
         recyclerView.setAdapter(postAdapter);
-// handle visibility of button and recyclerView
+     // handle visibility of button and recyclerView
         getPostBtn.setVisibility(View.GONE);
         recyclerView.setVisibility(View.VISIBLE);
 
